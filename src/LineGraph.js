@@ -48,10 +48,10 @@ const options={
     }
 }
 
-function LineGraph() {
+function LineGraph({ casesType='cases'}) {
     const [data, setData] = useState({})
     
-    const buildChartData = (data, casesType='cases') =>{
+    const buildChartData = (data, casesType) =>{
         const chartData = [];
         let lastDataPoint;
     
@@ -89,7 +89,7 @@ fetchData()
 return(
         <div>
             {data?.length>0 &&( <Line 
-              options={options}
+              
               data={{
                   datasets: 
                       [{
@@ -99,7 +99,7 @@ return(
                         }]
                   
               }}
-              
+              options={options}
             />
             )}
            
